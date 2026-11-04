@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pousada Vento Leste</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Pousada Vento Leste</h1><p>Controle simples de quartos e reservas</p></header>
+  <nav><button onclick="mostrar('quartos')">Quartos</button><button onclick="mostrar('reservas')">Reservas</button></nav>
+  <main>
+    <section id="quartos">
+      <h2>Quartos</h2>
+      <form id="form-quarto">
+        <input type="hidden" name="id"><input name="numero" placeholder="Número" required>
+        <input name="tipo" placeholder="Tipo (casal, família...)" required>
+        <input name="capacidade" type="number" min="1" placeholder="Capacidade" required>
+        <input name="diaria" type="number" min="1" step="0.01" placeholder="Diária (R$)" required>
+        <button>Salvar quarto</button><button type="button" onclick="limpar('quarto')">Limpar</button>
+      </form><div id="lista-quartos"></div>
+    </section>
+    <section id="reservas" hidden>
+      <h2>Reservas</h2>
+      <form id="form-reserva">
+        <input type="hidden" name="id"><select name="quarto_id" id="escolha-quarto" required></select>
+        <input name="hospede" placeholder="Nome do hóspede" required><input name="telefone" placeholder="Telefone" required>
+        <label>Entrada <input name="entrada" type="date" required></label><label>Saída <input name="saida" type="date" required></label>
+        <input name="pessoas" type="number" min="1" placeholder="Nº de pessoas" required>
+        <button>Salvar reserva</button><button type="button" onclick="limpar('reserva')">Limpar</button>
+      </form><div id="lista-reservas"></div>
+    </section>
+    <p id="mensagem"></p>
+  </main><script src="app.js"></script>
+</body></html>
